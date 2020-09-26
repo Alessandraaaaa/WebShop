@@ -1,0 +1,4 @@
+com/app/WebShopApp.java
+ com.app.WebShopApp
+com/app/controllers/MainController.java
+ com.app.controllers.MainController
