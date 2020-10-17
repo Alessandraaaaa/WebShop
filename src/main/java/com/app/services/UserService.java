@@ -25,6 +25,21 @@ public class UserService {
     public List<User> getUserByPasswordAndLogin (User user){
         return userDao.getUsersByUsernameAndPassword(user);
 
+        // private Integer getUserId(Login login){
+        // List<User> userDao.getUsersByUsername(login. getUsername());
+        // if(users.size() >1){
+        // sout()"there is more than 1 user with username: " +login.getUsernamne());
+        // }
+        // if(users.esEmpty()){
+        // return null;
+        // else{
+        // return users.get(0.getId();
+        // }
+        //
+        // }
+        //
+        // }
+
 
     }
 

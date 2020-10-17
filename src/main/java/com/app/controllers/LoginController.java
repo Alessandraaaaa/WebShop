@@ -35,3 +35,26 @@ public class LoginController {
 
 
 }
+// @Controller
+
+//public class LoginController{
+// @GetMapping("/login")
+//public String getLoginForm(Model model){
+//model.addAtribute("login",new login());
+// return "login";
+//}
+//@PostMapping("/login")
+//public String loginUser(@ModelAtribute Login login,Model model){
+//
+//
+// return "loging_response";
+//
+//
+//
+// }
+//
+//
+//
+//
+//
+// }
