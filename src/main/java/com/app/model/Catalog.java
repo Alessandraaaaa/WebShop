@@ -5,8 +5,8 @@ import java.util.Date;
 public class Catalog {
     private int id;
     private String name;
-    private int sub_type_id;
-    private int manufacture_id;
+    private String subType;
+    private String manufacture;
     private String description;
     private Double price;
 
@@ -26,20 +26,20 @@ public class Catalog {
         this.name = name;
     }
 
-    public int getSub_type_id() {
-        return sub_type_id;
+    public String getSubType() {
+        return subType;
     }
 
-    public void setSub_type_id(int sub_type_id) {
-        this.sub_type_id = sub_type_id;
+    public void setSubType(String subType) {
+        this.subType = subType;
     }
 
-    public int getManufacture_id() {
-        return manufacture_id;
+    public String getManufacture() {
+        return manufacture;
     }
 
-    public void setManufacture_id(int manufacture_id) {
-        this.manufacture_id = manufacture_id;
+    public void setManufacture(String manufacture) {
+        this.manufacture = manufacture;
     }
 
     public String getDescription() {

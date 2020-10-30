@@ -55,9 +55,9 @@ public class UserDao {
         return user;
 
     }
-    public List<User> getUsersByUsernameAndPassword(User user) {
+    public List<User> getUsersByUsername(User user) {
         RowMapper<User> rowMapper = (rs, rowNumber) -> mapUser(rs);
-        return jdbcTemplate.query("SELECT * FROM users where users.first_name = ? and users.password=?",
-                new Object[] {user.getFirstName(), user.getPassword()} ,rowMapper);
+        return jdbcTemplate.query("SELECT * FROM users where users.first_name = ?",
+                new Object[] {user.getFirstName()} ,rowMapper);
     }
 }

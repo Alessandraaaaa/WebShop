@@ -16,9 +16,14 @@ public class CatalogDao {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
     public List<Catalog> getCatalogs() {
         RowMapper<Catalog> rowMapper = (rs, rowNumber) -> mapCatalog(rs);
-        return jdbcTemplate.query("SELECT * FROM catalog", rowMapper);
+        return jdbcTemplate.query("SELECT c.id,c.name,c.description, c.price,s.name as subType, m.name as manufacture " +
+                "FROM catalog as c \n" +
+                "LEFT JOIN sub_type as s on s.id=c.sub_type_id\n" +
+                "LEFT JOIN manufactures as m on  m.id=c.manufacture_id", rowMapper);
+
     }
 
     private Catalog mapCatalog(ResultSet rs) throws SQLException {
@@ -27,8 +32,8 @@ public class CatalogDao {
         catalog.setId(rs.getInt("id"));
         catalog.setName(rs.getString("name"));
         catalog.setDescription(rs.getString("description"));
-        catalog.setManufacture_id(rs.getInt("manufacture_id"));
-        catalog.setSub_type_id(rs.getInt("sub_type_id"));
+        catalog.setManufacture(rs.getString("manufacture"));
+        catalog.setSubType(rs.getString("subType"));
         catalog.setPrice(rs.getDouble("price"));
 
         return catalog;

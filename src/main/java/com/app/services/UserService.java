@@ -4,6 +4,7 @@ import com.app.dao.UserDao;
 import com.app.model.Registration;
 import com.app.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,26 +20,20 @@ public class UserService {
     }
 
     public void storeUser(Registration reg){
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+        reg.setPassword(encoder.encode(reg.getPassword()));
         userDao.storeUser(reg);
     }
 
     public List<User> getUserByPasswordAndLogin (User user){
-        return userDao.getUsersByUsernameAndPassword(user);
+        return userDao.getUsersByUsername(user);
 
-        // private Integer getUserId(Login login){
-        // List<User> userDao.getUsersByUsername(login. getUsername());
-        // if(users.size() >1){
-        // sout()"there is more than 1 user with username: " +login.getUsernamne());
-        // }
-        // if(users.esEmpty()){
+       // BCryptPasswordEncoder encoder= new BCryptPasswordEncoder(12);
+        //if (users.isEmpty() && encoder.matches(login.getpassword(), users.get(0).getPassword()))
+// return users.get(0).getID();
+        //}
         // return null;
-        // else{
-        // return users.get(0.getId();
-        // }
-        //
-        // }
-        //
-        // }
+
 
 
     }

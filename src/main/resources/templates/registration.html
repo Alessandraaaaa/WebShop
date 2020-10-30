@@ -1,8 +1,19 @@
 <!DOCTYPE HTML>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Handling Form Submission</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registration form</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      $( function() {
+        $( "#birthDate" ).datepicker();
+      } );
+  </script>
 </head>
 <body>
 <h1>Form</h1>
@@ -12,7 +23,7 @@
     <p>last name: <input type="text" th:field="*{lastName}" /></p>
     <p>email: <input type="text" th:field="*{email}" /></p>
     <p>phone: <input type="text" th:field="*{phone}" /></p>
-    <p>birth date: <input type="date" th:field="*{birthDate}" /></p>
+    <p>birth date: <input type="text" th:field="*{birthDate}" /></p>
     <p>card nr: <input type="text" th:field="*{cardNr}" /></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
