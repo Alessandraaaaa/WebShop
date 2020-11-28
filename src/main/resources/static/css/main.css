@@ -22,6 +22,10 @@ body {
     justify-content: space-between;
 }
 
+.topHeader {
+    text-align: right;
+}
+
 .header {
     display: flex;
     margin-bottom: 5px;

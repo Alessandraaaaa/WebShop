@@ -1,5 +1,8 @@
 package com.app.model;
 
+import java.text.DateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Registration {
@@ -7,7 +10,8 @@ public class Registration {
     private String password;
     private String lastName;
     private String phone;
-    private String birthDate;
+    //private String birthDate;
+    private LocalDate birthDate;
     private String cardNr;
     private String email;
 
@@ -27,12 +31,20 @@ public class Registration {
         this.phone = phone;
     }
 
-    public String getBirthDate() {
-        return birthDate;
-    }
+   // public String getBirthDate() {
+    //    return birthDate;
+   // }
+
+   // public void setBirthDate(String birthDate) {
+    //    this.birthDate = birthDate;
+    //}
+    public LocalDate getBirthDate() {
+       return birthDate;
+   }
 
     public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        this.birthDate = LocalDate.parse(birthDate, formatter);
     }
 
     public String getCardNr() {

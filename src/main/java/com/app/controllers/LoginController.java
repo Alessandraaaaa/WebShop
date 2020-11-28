@@ -45,10 +45,11 @@ public class LoginController {
     }
     @PostMapping("/login")
     public String login(@ModelAttribute User user, Model model){
-       Integer userId= loginService.getUserId(user);
+       User logedInUser= loginService.getUserById(user);
 
-       if (!StringUtils.isEmpty(userId)) {
-           currentUser.setId(userId);
+       if (Objects.nonNull(logedInUser)) {
+           currentUser.setId(logedInUser.getId());
+           currentUser.setName(logedInUser.getFirstName() + " " + logedInUser.getLastName());
            model.addAttribute("id", currentUser.getId());
            return "loginSuccess";
        }

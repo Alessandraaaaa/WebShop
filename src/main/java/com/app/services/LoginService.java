@@ -14,7 +14,7 @@ public class LoginService {
     @Autowired
     private UserDao userDao;
 
-    public Integer getUserId(User login) {
+    public User getUserById(User login) {
         List<User> users = userDao.getUsersByUsername(login);
 
         if (users.size() > 1) {
@@ -25,7 +25,7 @@ public class LoginService {
 
         if (!users.isEmpty() && encoder.matches(login.getPassword(),
                 users.get(0).getPassword())) {
-            return users.get(0).getId();
+            return users.get(0);
         }
         return null;
     }

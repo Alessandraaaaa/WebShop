@@ -15,6 +15,10 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
+    public List<User> getAllUsers(){
+        return userDao.getUsers();
+    }
+
     public String getFirstName(){
         return userDao.getUsers().get(0).getFirstName();
     }

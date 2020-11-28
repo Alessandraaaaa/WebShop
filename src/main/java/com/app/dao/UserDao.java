@@ -25,18 +25,9 @@ public class UserDao {
     public void storeUser(Registration reg) {
         jdbcTemplate.update("INSERT INTO users (first_name, password, last_name, email, birth_date, card_nr, phone) " +
                         "VALUES (?, ?, ?, ?, ?, ?, ?)",
-                reg.getUsername(), reg.getPassword(), reg.getLastName(),reg.getEmail(),getBirtday(reg.getBirthDate()),
+                reg.getUsername(), reg.getPassword(), reg.getLastName(),reg.getEmail(),reg.getBirthDate(),
                 reg.getCardNr(),reg.getPhone());
 
-    }
-
-    private Date getBirtday(String date){
-        try {
-            return new SimpleDateFormat("yyyy-MM-dd").parse(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 
     public List<User> getUsers() {
